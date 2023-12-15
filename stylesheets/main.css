@@ -8,6 +8,10 @@ body{
     background-color: #FFF8F0;
 }
 
+main{
+    margin-bottom: 3rem;
+}
+
 #wrapper{
     width: 85%;
     margin: 0 auto;
@@ -20,6 +24,7 @@ header{
     background-color: #005247;
 
 }
+
 
 #titleDesign{
     max-width: 60%;
@@ -49,10 +54,10 @@ h2{
 
 #rounded{
     font-size: 3rem;
-    font-weight:300;
+    font-weight:400;
     color: #fff;
     background-color: rgb(247, 135, 8);
-    border-radius: 6rem;
+    border-radius: 3rem;
     padding: 1.4rem;
 }
 
@@ -182,8 +187,8 @@ main{
     grid-row: 3;
     grid-column: 2;
 
-}
 
+}
 
 form {
     padding: 2rem;
@@ -215,6 +220,89 @@ button {
 button:hover {
     background-color: #c98c0a;
 }
+
+
+#searchByIngridient{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 2rem;
+}
+
+#searchByIngridient h2{
+    grid-row: 1;
+    grid-column: span 3;
+    margin-top: 2rem;
+}
+
+#searchByIngridient p{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    grid-row: 2;
+    grid-column: span 3;
+}
+
+#searchByIngridient #searchFieldIngridient{
+    grid-row: 3;
+    grid-column: 1;
+    margin: 0;
+}
+#searchByIngridient #ingridientButtonSubmit{
+    grid-row: 3;
+    grid-column: 2;
+}
+
+#searchByIngridient #randomMealButton{
+    grid-row: 3;
+    grid-column: 3;
+
+}
+
+#ingridientButtonSubmit{
+    max-width: 20%;
+    border-radius: 0;
+}
+
+#randomMealButton{
+    max-width: 20%;
+    border-radius: 0;
+}
+
+#searchResults{
+    margin-top: 3rem;
+}
+
+
+.recipeArticle {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    margin-left: 3rem;
+
+}
+
+.recipeArticle .foodTitleSearch {
+    grid-row: 1;
+    grid-column: span 2;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    
+}
+
+
+.recipeArticle .foodImagesearch {
+    grid-row: 2;
+    grid-column: 1;
+    max-width: 60%;
+    border-radius: 3rem;
+
+}
+
+.recipeArticle .reciepeSearch {
+    grid-row: 2;
+    grid-column: 2;
+    margin-right: 3rem;
+    place-self: center;
+}
+
 
 
 footer{

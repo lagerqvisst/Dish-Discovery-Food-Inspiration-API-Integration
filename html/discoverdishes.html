@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="se">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/reset.css">
+    <link rel="stylesheet" href="../stylesheets/main.css">
+    <script src="../javascript/index.js" type="module"></script>
+    <title>Dish Discovery</title>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <section id="titleDesign">
+                <h1>Dish</h1>
+                <p id="rounded">Discovery</p>
+            </section>
+
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html">Start</a></li>
+                <li id="currentPage"><a href="/html/discoverdishes.html">Discover Dishes</a></li>
+                <li><a href="/html/globalinspiration.html">Global Inspiration</a></li>
+                <li ><a href="/html/blog.html">Blog</a></li>
+                <li ><a href="/html/contactus.html">Contact us</a></li>
+            </ul>
+        </nav>
+
+        <main>
+
+            <section id="searchByIngridient">
+                <h2>Begin your discovery</h2>
+                <p>Discover new dishes effortlessly! Use the search box below to find recipes based on your favorite ingredients.<br>
+                    Feeling adventurous? Try the 'random' meal button for a delightful surprise. Let the culinary exploration begin!</p>
+
+                <input id="searchFieldIngridient" type="text" placeholder="Type an ingredient of your preference (for eg. 'chicken')">
+                <button id="ingridientButtonSubmit" type="button">Sök</button>
+
+            
+                <button id="randomMealButton">Random meal</button>
+            </section>
+            
+            
+            <section id="searchResults">
+                <!--Javascript genererade element. Se index.js-->
+            </section>
+            
+
+
+
+        </main>
+
+        <footer>
+            <p id="endingTextFooter">Embark on your culinary adventure with Dish Discovery. 
+                Your journey into the world of flavors and recipes begins here. 
+                Whether you're a kitchen novice or a seasoned cook, our platform is crafted to elevate your cooking experience.
+            </p>
+
+            <p id="connectFooter">Conntect:  </p>
+
+            <ul>
+                <li>GitHub: <a href="github.com/lagerqvisst">github.com/lagerqvisst</a></li>
+                <li>LinkedIn: <a href="linkedin.com/in/lagerqvist">linkedin.com/in/lagerqvist</a></li>
+                <li></li>
+            </ul>
+                 
+            <p id="footerCredits">Created by Alexander Lagerqvist as part of the final project for the course "Dynamiska webbapplikationer HT2023" at Uppsala University.<br>
+                Special thanks to <a href="https://www.themealdb.com/api.php">TheMealDB</a> for the API service.
+            </p>
+        </footer>
+
+
+    </div>
+    
+</body>
+</html>
