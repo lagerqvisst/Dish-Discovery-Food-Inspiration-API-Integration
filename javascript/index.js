@@ -1,22 +1,27 @@
-import { MealByIngridient } from './apiextract.js';
-import { MealByID } from './apiextract.js';
-import { MealByCountry } from './apiextract.js';
-import { RandomMeal } from './apiextract.js';
+import { MealByIngridient,MealByID, MealByCountry, RandomMeal } from './apiextract.js';
 
-//Funktionalitet för Discover Dishes sidan där man kan söka på en ingridens för att returnerar resultat.
 
+//Följande element används i metoderna som är beskrivna nedan. 
 const searchInput = document.getElementById('searchFieldIngridient');
 const searchButton = document.getElementById('ingridientButtonSubmit');
-
 const randomMealButton = document.getElementById('randomMealButton');
-
-//Sektion som agerar parent där vi lägger till sökresultaten. 
 const searchResultsSection = document.getElementById("searchResults"); 
 
-//Tar in användarens input som sträng och skickar in den i metoden för att hämta specifik data från API baserat på text strängen.
+GenerateFlags(); 
+
+//Denna metod är skapad för att rensa innehållet när man tex. trycker på random-knappen flera gånger. 
+//Även om du tryckt på random och sedan börjar söka så vill jag ta bort resultatet från random knappen.
+function ClearResults() {
+    const searchResultsSection = document.getElementById('searchResults');
+    searchResultsSection.innerHTML = ''; 
+}
+
+//Anledning till if searchButton och randomMealButton är att när man navigerar på andra sidor så tycks javascript producera errors när den inte kan lokalisera elementet på den sidan man är på och det producerar fel om man försöker exekvera javascript på andra sidor.
+//Denna metod används för realisera funktionaliten på sidan "Discover Dishes".
+//När en användare har skrivit in text i sökfäletet och sedan trycker på sökknappen sparar vi när texten i sökfältet till en variabel.
+//Den sparade variabeln används som inputparameter i metodanropet för att extrahera data från APIn som får maträtter baserat på ingridienser.
 if(searchButton){
     searchButton.addEventListener('click', function() {
-        // Spara ner användarens input i sökfältet som skickas vidare till API-metoden. 
         var searchValue = searchInput.value;
         console.log('Söksträng: ', searchValue);
     
@@ -28,6 +33,8 @@ if(searchButton){
     
 }
 
+//Denna metod används också på sidan "Discover Dishes". 
+//När användaren trycker på "random-knappen" anropar vi API-metoden för att få fram en slumpad maträtt. 
 if(randomMealButton){
     randomMealButton.addEventListener('click', function() {
     
@@ -40,18 +47,28 @@ if(randomMealButton){
 
 }
 
-
-// Hämta alla bilder med klassen "flag-image"
+//Den här metoden används för att realisera funktionaliteten på sidan "Global Inspiration". 
+//Notera i HTML-filen att vi taggat varje bild med en class "flag-image".
+//Alla flaggbilder sparas effektivt ner som en array. 
+//För varje flagga som finns har vi en eventlyssnare som lyssnar efter ett musklick. 
+//När en användare klickar på en flagga anropar vi ClickedOnFlag vilket jag beskriver vidare nedan. 
+function GenerateFlags(){
+   
 var flagImages = document.getElementsByClassName('flag-image');
 
-// Lägg till klickhändelse för varje bild
+//Gör effektivt att alla flaggor får eventlyssnare med musklick. 
 for (var i = 0; i < flagImages.length; i++) {
     flagImages[i].addEventListener('click', function() {
         ClickedOnFlag(this);
     });
 }
 
-// ClickedOnFlag-funktionen
+}
+
+//Denna metod körs när en användare klickar på en flagga på sidan "Global Inspiration."
+//Som beskrivit ovan har varje flagga en eventlyssnare som lyssnar på musklick. 
+//När en användare klickar på flagga sparar vi ner en text-sträng som är unikt taggad på bilden i HTML. 
+//Detta för att vi ska kunna korrekt anropa API-metoden som behöver exempelvis en input såsom "Canadian" för mat från Canada. 
 function ClickedOnFlag(flag) {
     var countryCode = flag.getAttribute('data-country-code');
     
@@ -62,20 +79,19 @@ function ClickedOnFlag(flag) {
     })
 }
 
-//Denna metod är skapad för att rensa innehållet när man tex. trycker på random-knappen flera gånger. 
-//Även om du tryckt på random och sedan börjar söka så vill jag ta bort resultatet från random knappen.
-function ClearResults() {
-    const searchResultsSection = document.getElementById('searchResults');
-    searchResultsSection.innerHTML = ''; 
-}
-
-
+//Denna metod kan vi återanvända för samtliga API-anrop vi gör på sidan när vi genrerar recept utifrån random-knapp, "söka på ingridient" samt "klicka på flaggor"
+//Både API-metoden för MealByCountry och MealByIngridient lagrar inte fulla receptet i JSON-filen men den lagrar dock ett ID. 
+//Därav använder vi en API-metod för att generera fram full maträttsdata genom metoden MealByID. 
+//Metoden börjar med att iterera igenom alla meals och för varje iteration arbetar vi med idMeal som är input parameter för att extrahera ut full data för en viss maträtt.
+//Sen följer ett liknande arbetsflöde som inlämningen för stryktipset (första javascripts inlämningen).
+//Notera HTML filerna för discoverydishes och globalinspiration har en tom placeholder section som är ämnad för sökresultaten. 
+//För varje iteration arbetar vi med en maträtt i taget (mealDetails) och vi bygger därefter upp en artikel med information som sedan appendas till placeholder sectionen jag tidigare nämnde. 
 async function GenerateMealData(data) {
 
     for (const meal of data.meals) {
         var idMeal = meal.idMeal;
 
-        const mealDetails = await MealByID(idMeal);
+        const mealDetails = await MealByID(idMeal); //Inväntar att vi får fram JSON-filen från MealByID som resterande rader kommer bearabeta.
         console.dir(mealDetails);
 
         const articleContainer = document.createElement('article');

@@ -65,14 +65,14 @@ h2{
     font-size: 3rem;
     font-weight:400;
     color: #fff;
-    background-color: rgb(247, 135, 8);
+    background-color: #E58902;
     border-radius: 3rem;
     padding: 1.4rem;
 }
 
 
 nav{
-    background-color:chocolate;
+    background-color:#E58902;
     padding: 1.5rem;
     border-radius: 1rem;
 
@@ -222,7 +222,7 @@ textarea {
 }
 
 button {
-    background-color: #d88e04;
+    background-color: #E58902;
     color: #fff;
     padding: 0.4rem;
     border: none;
@@ -231,7 +231,7 @@ button {
 }
 
 button:hover {
-    background-color: #c98c0a;
+    background-color: #000000;
 }
 
 
@@ -313,17 +313,19 @@ button:hover {
     justify-content: space-between;
     max-width: 10%;
     padding: 2rem;
+    cursor: pointer;
 }
 
 #searchByCountry img:hover{
     opacity: 50%;
+
 }
 
 
 
 footer{
     padding: 1.5rem;
-    background-color: #9CB0A4;
+    background-color:#9CB0A4;
     margin-bottom: 2rem;
     justify-content: center;
     text-align: center;
