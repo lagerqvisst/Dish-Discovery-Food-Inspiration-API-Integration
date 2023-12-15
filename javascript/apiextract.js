@@ -27,9 +27,9 @@ export function MealByIngridient(string) {
 
 
 
-  export function MealByountryt(string) {
+  export function MealByCountry(string) {
 
-    return fetch(`www.themealdb.com/api/json/v1/1/filter.php?a=${string}`)
+    return fetch(`https:/www.themealdb.com/api/json/v1/1/filter.php?a=${string}`)
       
     .then(function (response) {
       return response.json();

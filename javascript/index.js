@@ -1,6 +1,8 @@
 import { MealByIngridient } from './apiextract.js';
 import { MealByID } from './apiextract.js';
+import { MealByCountry } from './apiextract.js';
 import { RandomMeal } from './apiextract.js';
+
 //Funktionalitet för Discover Dishes sidan där man kan söka på en ingridens för att returnerar resultat.
 
 const searchInput = document.getElementById('searchFieldIngridient');
@@ -12,25 +14,53 @@ const randomMealButton = document.getElementById('randomMealButton');
 const searchResultsSection = document.getElementById("searchResults"); 
 
 //Tar in användarens input som sträng och skickar in den i metoden för att hämta specifik data från API baserat på text strängen.
-searchButton.addEventListener('click', function() {
-    // Spara ner användarens input i sökfältet som skickas vidare till API-metoden. 
-    var searchValue = searchInput.value;
-    console.log('Söksträng: ', searchValue);
-
-    MealByIngridient(searchValue).then(function (data) {
-        ClearResults(); 
-        GenerateMealData(data); 
+if(searchButton){
+    searchButton.addEventListener('click', function() {
+        // Spara ner användarens input i sökfältet som skickas vidare till API-metoden. 
+        var searchValue = searchInput.value;
+        console.log('Söksträng: ', searchValue);
+    
+        MealByIngridient(searchValue).then(function (data) {
+            ClearResults(); 
+            GenerateMealData(data); 
+        });
     });
-});
-
-randomMealButton.addEventListener('click', function() {
     
-    RandomMeal().then(function (data){
+}
+
+if(randomMealButton){
+    randomMealButton.addEventListener('click', function() {
+    
+        RandomMeal().then(function (data){
+            ClearResults(); 
+            GenerateMealData(data); 
+        })
+        
+    });
+
+}
+
+
+// Hämta alla bilder med klassen "flag-image"
+var flagImages = document.getElementsByClassName('flag-image');
+
+// Lägg till klickhändelse för varje bild
+for (var i = 0; i < flagImages.length; i++) {
+    flagImages[i].addEventListener('click', function() {
+        ClickedOnFlag(this);
+    });
+}
+
+// ClickedOnFlag-funktionen
+function ClickedOnFlag(flag) {
+    var countryCode = flag.getAttribute('data-country-code');
+    
+    MealByCountry(countryCode).then(function (data){
         ClearResults(); 
         GenerateMealData(data); 
+        console.dir(data);  
     })
-    
-});
+}
 
 //Denna metod är skapad för att rensa innehållet när man tex. trycker på random-knappen flera gånger. 
 //Även om du tryckt på random och sedan börjar söka så vill jag ta bort resultatet från random knappen.
