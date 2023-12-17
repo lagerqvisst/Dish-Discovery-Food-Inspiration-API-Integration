@@ -68,6 +68,8 @@ h2{
     background-color: #E58902;
     border-radius: 3rem;
     padding: 1.4rem;
+    place-self: center;
+
 }
 
 
@@ -123,7 +125,7 @@ nav ul{
 #startPage img{
     grid-row: 2;
     grid-column: 1;
-    max-width: 100%;
+    max-width: 75%;
 
 }
 
@@ -300,7 +302,7 @@ button:hover {
 .recipeArticle .foodImagesearch {
     grid-row: 2;
     grid-column: 1;
-    max-width: 60%;
+    max-width: 75%;
     border-radius: 3rem;
 
 }
@@ -366,24 +368,79 @@ footer a:hover, footer a:focus {
 
 
 /*Mindre skärmar - surfplattor */
-@media(max-width: 1024px){
+@media(max-width: 1020px){
 
     #wrapper{
-        width: 100%;
-        margin: 0 auto;
+        width: 90%; 
     }
+
+    h1 {
+        font-size: 4.5rem;
+        margin-right: 1rem;
+    }
+
+    #rounded{
+        padding: 1rem;
+    }
+
+    #titleDesign{
+        max-width: 85%;
+    }
+
+    #titleDesign p{
+        font-size: 2rem;
+    }
+
+    nav a{
+        font-size: 1.2rem;
+    }
+
+    section {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+
+    #ingridientButtonSubmit, #randomMealButton {
+        max-width: 40%;
+        border-radius: 0;
+    }
+
 
 }
 
 /*För smartphones */
 @media(max-width: 800px){
 
+    #wrapper{
+        width: 100%; 
+    }
+
+    h1 {
+        font-size: 3rem;
+        margin-right: 1rem;
+    }
+
+    #rounded{
+        padding: 1rem;
+    }
+
+    #titleDesign{
+        max-width: 75%;
+    }
+
+    #titleDesign p{
+        font-size: 1rem;
+    }
+    
+
     nav ul{
         flex-direction: column;
         align-items: center;
         
-        /*Vi renoverar hela navigeringsmenyn som tidigare haft horisontell layout.
-        Utnyttjar flexdirection att få navieringsalternativen på rad och sedan centrerar i mitten */
+
     }
 
     #startPage p{
@@ -399,19 +456,24 @@ footer a:hover, footer a:focus {
     
     }
 
-    #blog img, .recipeArticle .foodImagesearch{
-        max-width: 60%;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+    #blog h3{
+        grid-column: span 3;
+    }
+
+    #blog img, #startPage img,  .recipeArticle .foodImagesearch{
+        max-width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
     #startPage p, #blog p{
         place-self: center;
         padding-left: 0;
-    
         border-left: 0;
         border-style: solid;
+        font-size: 1rem;
     }
+
 
     .recipeArticle .reciepeSearch {
         grid-row: 3;
@@ -419,8 +481,16 @@ footer a:hover, footer a:focus {
     
     }
 
+    #ingridientButtonSubmit{
+        margin-right: 0.5rem; 
+    }
 
-
+    #ingridientButtonSubmit, #randomMealButton {
+        max-width: 75%;
+        border-radius: 0;
+        font-size: 0.7rem;
+    }
+    
 
 
 }
