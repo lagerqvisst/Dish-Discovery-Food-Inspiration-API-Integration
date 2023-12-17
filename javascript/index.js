@@ -120,6 +120,7 @@ async function GenerateMealData(data) {
     }
 }
 
+//Endast estetiskt tillägg på contact us sidan när man "låtas" fyllt i information i formuläret. 
 const btnContactUs = document.getElementById('contactUsSubmit'); 
 
 btnContactUs.addEventListener('click', function() {

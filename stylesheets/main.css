@@ -14,10 +14,7 @@ main{
 }
 
 section{
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding: 2rem; 
 }
 
 /*NAV/HEADER: START*/
@@ -39,7 +36,7 @@ header{
     max-width: 60%;
     padding: 1rem;
     border-radius: 2rem;
-    background-color:rgb(6, 114, 91);
+    background-color:#06725b;
     margin: 0 auto;
     padding: 2rem;
 
@@ -146,7 +143,6 @@ Arbetade på liknande sätt gällande inlämning 2 för CSS*/
 #blog article{
     display: grid;
     grid-template-columns: 0.3fr 1fr;
-    grid-template-rows: auto auto 2fr;
 }
 
 #blog h2{
@@ -167,6 +163,8 @@ Arbetade på liknande sätt gällande inlämning 2 för CSS*/
 
 }
 /*BLOGG: SLUT*/
+
+/*Gemensamma regler för startsida och blog*/
 #startPage img, #blog img{
    place-self: center;
 
@@ -185,11 +183,11 @@ Arbetade på liknande sätt gällande inlämning 2 för CSS*/
 
 }
 
+
 /*CONTACT US: START*/
 #contactUs{
     display: grid;
     grid-template-columns: 0.3fr 1fr;
-    grid-template-rows: auto auto 2fr;
 }
 
 #contactUs h2{
@@ -222,18 +220,18 @@ form {
 }
 
 label {
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 input,
 textarea {
     padding: 0.5rem;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
     border: 0.2rem solid #ccc;
 }
 
 button {
-    background-color: #E58902;
+    background-color: #000000;
     color: #fff;
     padding: 0.4rem;
     border: none;
@@ -241,8 +239,8 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #000000;
+button:hover, button:focus {
+    background-color: #E58902;
 }
 /*CONTACT US: SLUT*/
 
@@ -289,8 +287,26 @@ button:hover {
     max-width: 20%;
     border-radius: 0;
 }
+/*Discover Dishes: SLUT*/
 
 
+
+
+/*Global Inspiration: START*/
+#searchByCountry img{
+    justify-content: space-between;
+    max-width: 10%;
+    padding: 2rem;
+    cursor: pointer;
+}
+
+#searchByCountry img:hover{
+    opacity: 50%;
+
+}
+/*Global Inspiration: SLUT*/
+
+/*Sökresultat Javascript-genererade HTML-element. Visas på Discover Dishes & Global Inspiration*/
 .recipeArticle {
     display: grid;
     grid-template-columns: 0.5fr 1fr;
@@ -319,22 +335,7 @@ button:hover {
     grid-column: 2;
 
 }
-/*Discover Dishes: SLUT*/
-
-/*Global Inspiration: START*/
-#searchByCountry img{
-    justify-content: space-between;
-    max-width: 10%;
-    padding: 2rem;
-    cursor: pointer;
-}
-
-#searchByCountry img:hover{
-    opacity: 50%;
-
-}
-/*Global Inspiration: SLUT*/
-
+/*SLUT: Sökresultat Javascript-genererade HTML-element. Visas på Discover Dishes & Global Inspiration*/
 
 /*FOOTER: START*/
 footer{
@@ -396,12 +397,13 @@ footer a:hover, footer a:focus {
         padding: 1rem;
     }
 
+
     #titleDesign{
         max-width: 85%;
     }
 
     #titleDesign p{
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     nav a{
@@ -409,16 +411,38 @@ footer a:hover, footer a:focus {
     }
 
     section {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding: 1rem; 
     }
 
+    #startPage p{
+        font-size: 1.2rem;
+    }
 
     #ingridientButtonSubmit, #randomMealButton {
         max-width: 40%;
         border-radius: 0;
+    }
+
+    footer a{
+
+        font-size: 0.8rem;
+        
+    }
+    
+    
+    #endingTextFooter{
+        font-size: 0.8rem;
+
+    }
+    
+    #footerDiscoverText{
+        font-size: 0.8rem;
+
+    }
+    
+    #footerCredits{
+        font-size: 0.7rem;
+
     }
 
 
@@ -477,7 +501,7 @@ footer a:hover, footer a:focus {
     }
 
     #blog article {
-        margin: 1rem 1rem 1rem 1rem;
+        margin: 1rem; 
     }
 
     #blog img, #startPage img,  .recipeArticle .foodImagesearch{
@@ -521,6 +545,28 @@ footer a:hover, footer a:focus {
         grid-column: span 2;
     
     
+    }
+
+    footer a{
+
+        font-size: 0.6rem;
+        
+    }
+    
+    
+    #endingTextFooter{
+        font-size: 0.6rem;
+
+    }
+    
+    #footerDiscoverText{
+        font-size: 0.6rem;
+
+    }
+    
+    #footerCredits{
+        font-size: 0.4rem;
+
     }
     
 
