@@ -7,6 +7,7 @@ const searchButton = document.getElementById('ingridientButtonSubmit');
 const randomMealButton = document.getElementById('randomMealButton');
 const searchResultsSection = document.getElementById("searchResults"); 
 
+//Metoden beskrivs i detalj nedan. 
 GenerateFlags(); 
 
 //Denna metod är skapad för att rensa innehållet när man tex. trycker på random-knappen flera gånger. 
@@ -104,6 +105,8 @@ async function GenerateMealData(data) {
         const mealImage = document.createElement('img');
         mealImage.className = 'foodImagesearch'; 
         mealImage.src = meal.strMealThumb;
+        mealImage.alt = meal.strMeal; //Lägger till alt-text för varje bild (titeln på maträtten).
+       
 
         const instructions = document.createElement('p');
         instructions.className = 'reciepeSearch'; 
@@ -113,9 +116,15 @@ async function GenerateMealData(data) {
         articleContainer.appendChild(mealImage);
         articleContainer.appendChild(instructions);
 
-        searchResultsSection.appendChild(articleContainer);
+        searchResultsSection.appendChild(articleContainer); //Läggs till inom placeholder sectionen som beskrevs ovan. 
     }
 }
 
+const btnContactUs = document.getElementById('contactUsSubmit'); 
 
+btnContactUs.addEventListener('click', function() {
+    
+    alert('Thanks for your message, we will get back to you ASAP!');
+    
+});
 
