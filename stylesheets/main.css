@@ -2,7 +2,7 @@
 
 body{
     font-weight: 300;
-    font-size: 1.05rem;
+    font-size: 1rem;
     line-height: 1.6;
     font-family: 'Poppins', sans-serif;
     background-color: #FFF8F0;
@@ -20,7 +20,7 @@ section{
     padding-right: 2rem;
 }
 
-
+/*NAV/HEADER: START*/
 #wrapper{
     width: 85%;
     margin: 0 auto;
@@ -34,7 +34,7 @@ header{
 
 }
 
-
+/*Design för logga istället för bild*/
 #titleDesign{
     max-width: 60%;
     padding: 1rem;
@@ -50,6 +50,7 @@ header{
 
 }
 
+/*Ingår i loggan, lite högermarginal mot "Discovery"*/
 h1 {
     color: #fff;
     font-size: 5rem;
@@ -60,7 +61,7 @@ h2{
     font-size: 1.5rem;
 }
 
-
+/*Omfamnar texten "Discovery"*/
 #rounded{
     font-size: 3rem;
     font-weight:400;
@@ -86,29 +87,33 @@ nav a{
     font-size: 1.5rem;
 }
 
+/*Både hover/focus för att tillgodose användare som inte kan använda mus*/
 nav a:hover, nav a:focus{
     color: #FFFF;
     font-weight: 450;
 }
 
+/*För större skrämar, se media breakpoint för mobil, ändrar denna till vertikal*/
 nav ul{
-
     font-weight: 350;
     text-transform: uppercase;
     display: flex;
     justify-content: space-around;
 }
 
+/*Se HTML där beroende på vilken sida man besöker så ändras denna taggen i nav*/
 #currentPage{
-
     font-weight: 400; 
     text-decoration:underline;
     
 }
+/*NAV/HEADER SLUT*/
 
+/*Huvudinnehåll: STARTSTIDA*/
 
-
-
+/*Arbetar med grid-struktur för samtliga sidor men har lite olika kolumn/rad struktur beroende på sidornas innehåll.
+Finner det enkelt att justera om med media breakpoints för att anpassa innehållet till mindre skärmar
+Arbetade på liknande sätt gällande inlämning 2 för CSS*/
 #startPage article{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -135,8 +140,9 @@ nav ul{
     grid-column: 2 /span 3;
 
 }
+/*STARTSTIDA: SLUT*/
 
-
+/*BLOGG: START*/
 #blog article{
     display: grid;
     grid-template-columns: 0.3fr 1fr;
@@ -160,7 +166,7 @@ nav ul{
     grid-column: 2;
 
 }
-
+/*BLOGG: SLUT*/
 #startPage img, #blog img{
    place-self: center;
 
@@ -179,7 +185,7 @@ nav ul{
 
 }
 
-
+/*CONTACT US: START*/
 #contactUs{
     display: grid;
     grid-template-columns: 0.3fr 1fr;
@@ -238,8 +244,9 @@ button {
 button:hover {
     background-color: #000000;
 }
+/*CONTACT US: SLUT*/
 
-
+/*Discover Dishes: START*/
 #searchByIngridient{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -312,8 +319,9 @@ button:hover {
     grid-column: 2;
 
 }
+/*Discover Dishes: SLUT*/
 
-
+/*Global Inspiration: START*/
 #searchByCountry img{
     justify-content: space-between;
     max-width: 10%;
@@ -325,9 +333,10 @@ button:hover {
     opacity: 50%;
 
 }
+/*Global Inspiration: SLUT*/
 
 
-
+/*FOOTER: START*/
 footer{
     padding: 1.5rem;
     background-color:#9CB0A4;
@@ -365,7 +374,11 @@ footer a:hover, footer a:focus {
     margin-top: 1rem;
     font-style: italic;
 }
+/*FOOTER: SLUT*/
 
+
+
+/*SKÄRMANPASSNING START*/
 
 /*Mindre skärmar - surfplattor */
 @media(max-width: 1020px){
@@ -411,14 +424,14 @@ footer a:hover, footer a:focus {
 
 }
 
-/*För smartphones */
+/*För smartphones, anpassat ner till 320px i bredd. */
 @media(max-width: 800px){
 
     #wrapper{
         width: 100%; 
     }
 
-    h1 {
+    h1{
         font-size: 3rem;
         margin-right: 1rem;
     }
@@ -435,12 +448,11 @@ footer a:hover, footer a:focus {
         font-size: 1rem;
     }
     
-
+    /*Gör om navigeringen till att varje sidval nu ligger vertikalt*/
     nav ul{
         flex-direction: column;
         align-items: center;
         
-
     }
 
     #startPage p{
@@ -489,6 +501,18 @@ footer a:hover, footer a:focus {
         max-width: 75%;
         border-radius: 0;
         font-size: 0.7rem;
+    }
+
+    /*Tyckte inte bilden tillförde särskilt mycket vid liten skärm.*/
+    #contactUs img{
+        display: none;
+    }
+    /*När bilden tas bort breddar vi formuläret istället. */
+    #contactUs form{
+        grid-row: 3;
+        grid-column: span 2;
+    
+    
     }
     
 
