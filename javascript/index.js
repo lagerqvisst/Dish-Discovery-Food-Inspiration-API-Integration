@@ -24,7 +24,6 @@ function ClearResults() {
 if(searchButton){
     searchButton.addEventListener('click', function() {
         var searchValue = searchInput.value;
-        console.log('Söksträng: ', searchValue);
     
         MealByIngridient(searchValue).then(function (data) {
             ClearResults(); 
@@ -76,7 +75,6 @@ function ClickedOnFlag(flag) {
     MealByCountry(countryCode).then(function (data){
         ClearResults(); 
         GenerateMealData(data); 
-        console.dir(data);  
     })
 }
 
